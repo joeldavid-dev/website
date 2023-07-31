@@ -19,6 +19,11 @@
     src: url(fonts/Inter-ExtraBold.ttf);
 }
 
+@font-face {
+    font-family: source_code;
+    src: url(fonts/SourceCodePro-VariableFont_wght.ttf);
+}
+
 /* Reinicia el diseño de la página. */
 * {
     margin: 0;
@@ -30,7 +35,7 @@
 
 /* Estilos generales para la página web en modo claro */
 body {
-    font-family: IBM_plex_mono;
+    font-family: source_code;
     background: #f1f1f1;
     color: #3a3a3a;
 }
@@ -49,11 +54,13 @@ body {
     border-radius: 15px;
     border: solid 1px #3a3a3a;
     margin: 5px;
+    transition: 0.3s;
 }
 
 .btn:hover {
     color: #f1f1f1;
-    background: #3a3a3a;
+    background: #ff2828;
+    border-color: #ff2828;
 }
 
 .narrow-margin {
@@ -107,7 +114,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #f1f1f1;
+    background: #f1f1f1ea;
     margin: 10px 20px;
     border-radius: 50px;
     border: solid 1px #3a3a3a;
@@ -340,17 +347,17 @@ body {
 
     .btn {
         color: #f1f1f1;
-        border: solid 1px #f1f1f1;
+        border: solid 1px #8a8a8a;
     }
 
     .btn:hover {
-        color: #111111;
-        background: #f1f1f1;
+        background: #ff2828;
+        border-color: #ff2828;
     }
 
     .shape-head {
-        background: #111111;
-        border: solid 1px #f1f1f1;
+        background: #111111ea;
+        border: solid 1px #8a8a8a;
     }
 
     .transparent {
