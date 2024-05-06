@@ -114,17 +114,18 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background: #f1f1f1ea;
+    background: #f1f1f180;
     margin: 10px 20px;
     border-radius: 50px;
     border: solid 1px #3a3a3a;
     padding-left: 20px;
+    backdrop-filter: blur(20px);
 }
 
 .logo {
     padding: 10px 0;
     text-decoration: none;
-    color: #ff2828;
+    color: #3a3a3a;
     font-size: 16px;
     font-family: major_mono;
 }
@@ -356,8 +357,12 @@ body {
     }
 
     .shape-head {
-        background: #111111ea;
+        background: #11111180;
         border: solid 1px #8a8a8a;
+    }
+
+    .logo {
+        color: #f1f1f1;
     }
 
     .transparent {
