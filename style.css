@@ -38,7 +38,7 @@
     --warning_red: rgb(150, 0, 0);
 
     --deep-dark: rgb(0, 0, 10);
-    --accent_color_light: rgb(0, 117, 172);
+    --accent_color_light: rgb(0, 219, 172);
     --accent_color_dark: rgb(0, 60, 88);
 
     --app_contrast_light: rgb(200, 200, 200);
@@ -340,7 +340,6 @@ p {
     white-space: nowrap;
     padding: 5px 10px;
     border-radius: 15px;
-    border: solid 1px rgb(7, 75, 41);
     font-size: 12px;
 }
 
@@ -401,7 +400,8 @@ p {
 
 .outline-input:focus {
     outline: none;
-    border: 2px solid var(--accent_color_light);
+    background-color: var(--accent_color_dark);
+    color: var(--light);
 }
 
 .solid-button {
@@ -430,7 +430,8 @@ p {
 }
 
 .solid-button:hover {
-    background: var(--accent_color_light);
+    background: var(--light);
+    color: var(--dark);
 }
 
 .solid-button:focus {
@@ -620,5 +621,68 @@ p {
 
     .invisible-on-mobile {
         display: none;
+    }
+}
+
+/* Estilos específicos para modo oscuro */
+@media (prefers-color-scheme: dark) {
+    body {
+        color: var(--light);
+    }
+
+    .background-overlay {
+        background: var(--dark_overlay_ui);
+    }
+
+
+    .topbar {
+        background-color: var(--dark_overlay_ui);
+    }
+
+    .topbar-button {
+        color: var(--light);
+    }
+
+    .topbar-button:hover {
+        background: var(--accent_color_light);
+        color: var(--dark);
+    }
+
+    .positive-suggestion {
+        background-color: rgb(198, 255, 226);
+        color: rgb(7, 75, 41);
+    }
+
+    .outline-button {
+        color: var(--light);
+        border: 2px solid var(--accent_color_light);
+    }
+
+    .outline-button:hover {
+        background: var(--accent_color_light);
+        color: var(--dark);
+        border: 2px solid var(--accent_color_light);
+    }
+
+    .outline-input {
+        background-color: transparent;
+        border: 2px solid var(--accent_color_light);
+        color: var(--light);
+    }
+
+    .outline-input:focus {
+        outline: none;
+        background-color: var(--accent_color_light);
+        color: var(--dark);
+    }
+
+    .solid-button {
+        background-color: var(--accent_color_light);
+        color: var(--dark);
+    }
+
+    .solid-button:hover {
+        background: var(--light);
+        color: var(--dark);
     }
 }
