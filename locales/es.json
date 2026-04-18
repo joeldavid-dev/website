@@ -6,7 +6,12 @@
     "my_name": "Hola, soy Joel David",
     "available-to-work": "Disponible para trabajar",
     "about_me_description": "Ingeniero en computación especializado en ingenieria de software y tecnologias de la información. Del área metropolitana de la Ciudad de México.",
+    "my-linkedin": "Mi LinkedIn",
+    "contact-me": "Contáctame",
+    "codaby-description": "Proyecto de desarrollo de herramientas y aplicaciones de código abierto enfocadas en la facilidad, utilidad y diseño. Con ello, busco contribuir a la comunidad de desarrolladores y crear soluciones útiles y de calidad.",
+    "sanctuary-description": "Aplicación de escritorio desarrollada con ElectronJS para almacenar contraseñas y notas, protegida mediante cifrado simétrico AES-256, con especial atención a la privacidad del usuario y una excelente experiencia de usuario.",
     "name": "nombre:",
     "email": "correo electrónico:",
-    "message": "mensaje:"
+    "message": "mensaje:",
+    "send": "enviar mensaje"
 }

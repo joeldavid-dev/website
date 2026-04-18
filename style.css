@@ -27,7 +27,7 @@
 /* Definición de constantes */
 :root {
     --light: rgb(245, 245, 245);
-    --light_overlay_ui: rgba(220, 220, 220, 0.8);
+    --light_overlay_ui: rgba(245, 245, 245, 0.7);
     --dark: rgb(40, 40, 40);
     --dark_overlay_ui: rgba(10, 10, 10, 0.8);
     --neutral_grey: rgb(130, 130, 130);
@@ -61,20 +61,20 @@
     --color10: rgb(150, 0, 0);
 
     /* Valores de margen y padding */
-    --maximal-margin: 60px;
-    --extra-big-margin: 45px;
-    --big-margin: 30px;
-    --normal-margin: 15px;
-    --narrow-margin: 10px;
-    --minimal-margin: 5px;
+    --big-margin: 80px;
+    --big-margin-movile: 40px;
+    --normal-margin: 60px;
+    --normal-margin-movile: 30px;
+    --narrow-margin: 30px;
+    --narrow-margin-movile: 15px;
+    --minimal-margin: 10px;
+    --minimal-margin-movile: 5px;
+
     --transparent-btn-margin: 4px;
     --nano-margin: 2px;
 
     /* Valores de redondeo */
-    --minimal-radius: 6px;
-    --normal-radius: 11px;
-    --maximal-radius: 16px;
-    --ultra-radius: 30px;
+    --normal-radius: 18px;
 
     /* Redondeo exterior de un contenedor con margen minimo y elemento hijo minimo. */
     --external-radius: calc(var(--minimal-radius) + var(--minimal-margin));
@@ -105,6 +105,18 @@ h1 {
     font-size: 40px;
 }
 
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+p {
+    line-height: 1.5;
+}
+
 /* Estilos primitivos que se repiten. */
 .mayus {
     text-transform: uppercase;
@@ -125,23 +137,42 @@ h1 {
 
 .horizontal-elem-area {
     display: flex;
-    gap: var(--normal-margin);
+    gap: var(--minimal-margin);
 }
 
 .vertical-elem-area {
     display: flex;
     flex-direction: column;
-    gap: var(--normal-margin);
+    gap: var(--minimal-margin);
 }
 
 .center {
     align-items: center;
 }
 
+.space-between {
+    justify-content: space-between;
+}
+
 .normal-padding {
     padding: var(--normal-margin);
 }
 
+.narrow-padding {
+    padding: var(--narrow-margin);
+}
+
+.big-gap {
+    gap: var(--big-margin);
+}
+
+.narrow-gap {
+    gap: var(--narrow-margin);
+}
+
+.rounded {
+    border-radius: var(--normal-radius);
+}
 
 .btn {
     display: block;
@@ -170,7 +201,7 @@ h1 {
 }
 
 .blur {
-    backdrop-filter: blur(20px);
+    backdrop-filter: blur(10px);
 }
 
 /* Head. Es la barra que siempre permanece arriba. */
@@ -182,27 +213,19 @@ h1 {
     --x: calc(var(--posX, 0) * 1px);
     --y: calc(var(--posY, 0) * 1px);
     background-image:
-        linear-gradient(180deg, var(--background_color1), var(--background_color2)),
-        radial-gradient(100% 100% at calc(50% + var(--x)) calc(0% + var(--y)), rgb(0, 0, 0), rgb(255, 255, 255)),
-        radial-gradient(100% 100% at calc(50% - var(--x)) calc(0% - var(--y)), white, rgb(0, 0, 0)),
-        linear-gradient(180deg, var(--background_color1), var(--background_color2));
-    background-blend-mode: overlay, difference, difference, normal;
+        radial-gradient(100% 100% at calc(0% + var(--x)) calc(0% + var(--y)), var(--background_color1), var(--background_color2)),
+        radial-gradient(100% 100% at calc(100% - var(--x)) calc(100% - var(--y)), var(--background_color2), var(--background_color1));
+    background-blend-mode: overlay, normal;
 }
 
 .background-overlay {
-    background: rgba(255, 255, 255, 0.8);
+    background: var(--light_overlay_ui);
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     z-index: -1;
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .topbar {
@@ -216,6 +239,7 @@ h1 {
     border-radius: 50px;
     background-color: var(--light_overlay_ui);
     font-size: 14px;
+    margin: auto;
 }
 
 .topbar-button {
@@ -257,11 +281,11 @@ h1 {
 }
 
 .about-section {
-    margin-top: 180px;
+    padding: 20dvh var(--normal-margin) 20dvh var(--normal-margin);
+    margin: auto;
     display: flex;
     flex-direction: column;
-    gap: 30px;
-    max-width: 800px;
+    max-width: 600px;
 }
 
 .profile-picture {
@@ -272,8 +296,8 @@ h1 {
 }
 
 .positive-suggestion {
-    background-color: rgb(198, 255, 226);
-    color: rgb(7, 75, 41);
+    background-color: rgb(7, 75, 41);
+    color: rgb(198, 255, 226);
     width: min-content;
     white-space: nowrap;
     padding: 5px 10px;
@@ -282,4 +306,137 @@ h1 {
     font-size: 12px;
 }
 
-@media (max-width: 750px) {}
+.outline-button {
+    display: inline-flex;
+    /* mejor que flex para inline elements */
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 14px;
+    /* un poco más cómodo que 2px */
+    border-radius: 30px;
+    gap: var(--minimal-margin);
+    text-decoration: none;
+    /* quita el subrayado */
+    color: var(--dark);
+    font: inherit;
+
+    background-color: transparent;
+    border: 2px solid var(--neutral_grey);
+    /* importante para igualar con button */
+
+    cursor: pointer;
+    /* esto hace que se sienta como botón */
+
+    transition: all var(--normal-animation) ease;
+}
+
+.outline-button:hover {
+    background: var(--dark);
+    color: var(--light);
+    border: 2px solid var(--dark);
+}
+
+.outline-button:focus {
+    outline: none;
+}
+
+.outline-button:focus-visible {
+    outline: 2px solid #aaa;
+}
+
+.section-icon {
+    font-size: 30px;
+}
+
+.section-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 800px;
+    margin: auto;
+}
+
+.project-card {
+    border-radius: var(--normal-radius);
+    background-color: var(--color1);
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 100;
+}
+
+.codaby-logo {
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    color: white;
+}
+
+.codaby-text {
+    font-family: VarelaRound, system-ui;
+    font-size: 35px;
+}
+
+.section-dark {
+    background-color: black;
+    color: white;
+    padding: var(--big-margin) var(--normal-margin);
+    margin: auto;
+}
+
+.gray {
+    background-color: var(--dark_gray);
+}
+
+.dynamic-card {
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.project-video {
+    /* Que el video se ajuste a su contenedor*/
+    width: 400px;
+    /* Ajusta el video sin deformarlo */
+    object-fit: cover;
+    border-radius: var(--normal-radius);
+}
+
+@media (max-width: 500px) {
+    .about-section {
+        padding: 20dvh var(--normal-margin-movile) 20dvh var(--normal-margin-movile);
+    }
+
+    .normal-padding {
+        padding: var(--normal-margin-movile);
+    }
+
+    .section-dark {
+        padding: var(--big-margin-movile) var(--normal-margin-movile);
+    }
+
+    .big-gap {
+        gap: var(--big-margin-movile);
+    }
+
+    .medium-gap {
+        gap: var(--normal-margin-movile);
+    }
+
+    .codaby-logo {
+        width: 25px;
+        height: 25px;
+    }
+
+    .codaby-text {
+        font-size: 25px;
+    }
+}
