@@ -28,7 +28,7 @@
 :root {
     --light: rgb(245, 245, 245);
     --light_overlay_ui: rgba(245, 245, 245, 0.7);
-    --dark: rgb(40, 40, 40);
+    --dark: rgb(20, 20, 50);
     --dark_overlay_ui: rgba(10, 10, 10, 0.8);
     --neutral_grey: rgb(130, 130, 130);
     --light_gray: rgba(0, 0, 0, 0.15);
@@ -37,12 +37,16 @@
     --dark_gray_hover: rgba(255, 255, 255, 0.20);
     --warning_red: rgb(150, 0, 0);
 
+    --deep-dark: rgb(0, 0, 10);
+    --accent_color_light: rgb(0, 117, 172);
+    --accent_color_dark: rgb(0, 60, 88);
+
     --app_contrast_light: rgb(200, 200, 200);
-    --app_contrast_dark: rgb(55, 55, 55);
+    --app_contrast_dark: rgb(189, 21, 21);
 
     /* Colores del fondo */
     --background_color1: rgb(255, 255, 255);
-    --background_color2: rgb(0, 0, 0);
+    --background_color2: rgb(0, 107, 93);
 
     /* Tiempos de animación */
     --fast-animation: 0.2s;
@@ -61,8 +65,8 @@
     --color10: rgb(150, 0, 0);
 
     /* Valores de margen y padding */
-    --big-margin: 80px;
-    --big-margin-movile: 40px;
+    --big-margin: 100px;
+    --big-margin-movile: 60px;
     --normal-margin: 60px;
     --normal-margin-movile: 30px;
     --narrow-margin: 30px;
@@ -71,7 +75,7 @@
     --minimal-margin-movile: 5px;
 
     --transparent-btn-margin: 4px;
-    --nano-margin: 2px;
+    --nano-margin: 5px;
 
     /* Valores de redondeo */
     --normal-radius: 18px;
@@ -126,6 +130,10 @@ p {
     font-size: 20px;
 }
 
+.nano-text {
+    font-size: 12px;
+}
+
 .horizontal-flex {
     display: flex;
 }
@@ -162,6 +170,10 @@ p {
     padding: var(--narrow-margin);
 }
 
+.nano-padding {
+    padding: var(--nano-margin) 15px var(--nano-margin) 15px;
+}
+
 .big-gap {
     gap: var(--big-margin);
 }
@@ -174,6 +186,32 @@ p {
     border-radius: var(--normal-radius);
 }
 
+.mayorMono {
+    font-family: majorMono, monospace;
+}
+
+.JetBrainsMono {
+    font-family: jetBrainsMono, monospace;
+}
+
+/* Hacer que el elemento dentro del flex se expanta para ocupar todo el espacio disponible. */
+.flex-grow {
+    flex-grow: 1;
+}
+
+.visible-on-mobile {
+    display: none;
+}
+
+.invisible-on-mobile {
+    display: block;
+}
+
+.reverse {
+    flex-direction: row-reverse;
+}
+
+/* Elementos */
 .btn {
     display: block;
     padding: 5px 10px;
@@ -268,7 +306,7 @@ p {
 }
 
 .topbar-button:hover {
-    background: var(--dark);
+    background: var(--accent_color_dark);
     color: var(--light);
 }
 
@@ -322,7 +360,7 @@ p {
     font: inherit;
 
     background-color: transparent;
-    border: 2px solid var(--neutral_grey);
+    border: 2px solid var(--accent_color_dark);
     /* importante para igualar con button */
 
     cursor: pointer;
@@ -332,9 +370,9 @@ p {
 }
 
 .outline-button:hover {
-    background: var(--dark);
+    background: var(--accent_color_dark);
     color: var(--light);
-    border: 2px solid var(--dark);
+    border: 2px solid var(--accent_color_dark);
 }
 
 .outline-button:focus {
@@ -345,6 +383,117 @@ p {
     outline: 2px solid #aaa;
 }
 
+.outline-input {
+    padding: 6px 14px;
+    border-radius: 30px;
+    gap: var(--minimal-margin);
+    text-decoration: none;
+    /* quita el subrayado */
+    color: var(--dark);
+    font: inherit;
+
+    background-color: transparent;
+    border: 2px solid var(--accent_color_dark);
+    /* importante para igualar con button */
+
+    transition: all var(--normal-animation) ease;
+}
+
+.outline-input:focus {
+    outline: none;
+    border: 2px solid var(--accent_color_light);
+}
+
+.solid-button {
+    display: inline-flex;
+    /* mejor que flex para inline elements */
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 14px;
+    /* un poco más cómodo que 2px */
+    border-radius: 30px;
+    gap: var(--minimal-margin);
+    text-decoration: none;
+    /* quita el subrayado */
+    color: var(--light);
+    font: inherit;
+
+    background-color: var(--accent_color_dark);
+    border: none;
+    /* importante para igualar con button */
+
+    cursor: pointer;
+    /* esto hace que se sienta como botón */
+
+    transition: all var(--normal-animation) ease;
+}
+
+.solid-button:hover {
+    background: var(--accent_color_light);
+}
+
+.solid-button:focus {
+    outline: none;
+}
+
+.solid-button:focus-visible {
+    outline: 2px solid #aaa;
+}
+
+.solid-button-white {
+    display: inline-flex;
+    /* mejor que flex para inline elements */
+    align-items: center;
+    justify-content: center;
+
+    padding: 6px 14px;
+    /* un poco más cómodo que 2px */
+    border-radius: 30px;
+    gap: var(--minimal-margin);
+    text-decoration: none;
+    /* quita el subrayado */
+    color: var(--light);
+    font: inherit;
+
+    background-color: var(--dark_gray);
+    border: none;
+    /* importante para igualar con button */
+
+    cursor: pointer;
+    /* esto hace que se sienta como botón */
+
+    transition: all var(--normal-animation) ease;
+}
+
+.solid-button-white:hover {
+    background: var(--light);
+    color: var(--dark);
+}
+
+.solid-button-white:focus {
+    outline: none;
+}
+
+.solid-button-white:focus-visible {
+    outline: 2px solid #aaa;
+}
+
+.outline-label {
+    display: inline-flex;
+    /* mejor que flex para inline elements */
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    gap: var(--minimal-margin);
+    text-decoration: none;
+    /* quita el subrayado */
+    font: inherit;
+
+    background-color: transparent;
+    border: 2px solid var(--neutral_grey);
+}
+
 .section-icon {
     font-size: 30px;
 }
@@ -352,7 +501,7 @@ p {
 .section-container {
     display: flex;
     flex-direction: column;
-    max-width: 800px;
+    max-width: 70dvw;
     margin: auto;
 }
 
@@ -385,7 +534,7 @@ p {
 }
 
 .section-dark {
-    background-color: black;
+    background-color: var(--deep-dark);
     color: white;
     padding: var(--big-margin) var(--normal-margin);
     margin: auto;
@@ -404,15 +553,27 @@ p {
 
 .project-video {
     /* Que el video se ajuste a su contenedor*/
-    width: 400px;
+    width: 45dvw;
     /* Ajusta el video sin deformarlo */
     object-fit: cover;
     border-radius: var(--normal-radius);
 }
 
+.contact-section-container {
+    padding: 0 var(--normal-margin) 20dvh var(--normal-margin);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+}
+
 @media (max-width: 500px) {
     .about-section {
         padding: 20dvh var(--normal-margin-movile) 20dvh var(--normal-margin-movile);
+    }
+
+    .contact-section-container {
+        padding: 0 var(--normal-margin-movile) 20dvh var(--normal-margin-movile);
     }
 
     .normal-padding {
@@ -438,5 +599,26 @@ p {
 
     .codaby-text {
         font-size: 25px;
+    }
+
+    .dynamic-card {
+        flex-direction: column-reverse;
+
+    }
+
+    .project-video {
+        width: auto;
+    }
+
+    .section-container {
+        max-width: 100dvw;
+    }
+
+    .visible-on-mobile {
+        display: block;
+    }
+
+    .invisible-on-mobile {
+        display: none;
     }
 }

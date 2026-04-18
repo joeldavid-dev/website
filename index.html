@@ -97,18 +97,41 @@
                 </div>
 
                 <div class="dynamic-card narrow-gap">
-                    <div class="vertical-elem-area">
-
-                        <div class="horizontal-flex space-between">
+                    <div class="vertical-elem-area space-between">
+                        <div class="horizontal-flex space-between center">
                             <h3>Sanctuary</h3>
+                            <div class="horizontal-elem-area nano-padding">
+                                <i class="fa-brands fa-js"></i>
+                                <p class="JetBrainsMono mayus nano-text">JavaScript</p>
+                            </div>
                         </div>
+
 
                         <div class="gray narrow-padding rounded">
                             <p data-i18n="sanctuary-description"></p>
                         </div>
+
+                        <video autoplay loop muted playsinline class="project-video visible-on-mobile">
+                            <source src="./assets/videos/Sanctuary Fast Preview.mp4" type="video/mp4">
+                            Tu navegador no soporta la etiqueta de video.
+                        </video>
+
+                        <div class="horizontal-elem-area space-between center">
+                            <a href="https://github.com/joeldavid-dev/sanctuary" target="_blank"
+                                class="solid-button-white flex-grow">
+                                <i class="fa-brands fa-github"></i>
+                                <label data-i18n="view-on-github"></label>
+                            </a>
+
+                            <a href="https://github.com/joeldavid-dev/sanctuary/releases" target="_blank"
+                                class="solid-button-white flex-grow">
+                                <i class="fa-solid fa-download"></i>
+                                <label data-i18n="download"></label>
+                            </a>
+                        </div>
                     </div>
 
-                    <video autoplay loop muted playsinline class="project-video">
+                    <video autoplay loop muted playsinline class="project-video invisible-on-mobile">
                         <source src="./assets/videos/Sanctuary Fast Preview.mp4" type="video/mp4">
                         Tu navegador no soporta la etiqueta de video.
                     </video>
@@ -119,29 +142,31 @@
 
     <section id="contact">
         <h2 class="normal-padding" data-i18n="contact"></h2>
-        <form name=" contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="section-container">
+        <form name=" contact" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+            class="contact-section-container vertical-flex narrow-gap">
 
+            <p data-i18n="contact-description"></p>
             <p style="display: none;">
                 <label>No llenes esto si eres humano: <input name="bot-field" /></label>
             </p>
 
-            <div>
+            <div class="vertical-elem-area">
                 <label for="name" data-i18n="name"></label>
-                <input type="text" id="name" name="name" required>
+                <input class="outline-input" type="text" id="name" name="name" required>
             </div>
 
-            <div>
+            <div class="vertical-elem-area">
                 <label for="email" data-i18n="email"></label>
-                <input type="email" id="email" name="email" required>
+                <input class="outline-input" type="email" id="email" name="email" required>
             </div>
 
-            <div>
+            <div class="vertical-elem-area">
                 <label for="mensaje" data-i18n="message"></label>
-                <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+                <textarea class="outline-input" id="mensaje" name="mensaje" rows="4" required></textarea>
             </div>
 
-            <div>
-                <button type="submit" data-i18n="send"></button>
+            <div class="horizontal-flex reverse">
+                <button class="solid-button" type="submit" data-i18n="send"></button>
             </div>
         </form>
 </body>
