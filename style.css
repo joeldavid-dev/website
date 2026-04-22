@@ -32,9 +32,7 @@
     --dark_overlay_ui: rgba(10, 10, 10, 0.8);
     --neutral_grey: rgb(130, 130, 130);
     --light_gray: rgba(0, 0, 0, 0.15);
-    --light_gray_hover: rgba(0, 0, 0, 0.20);
     --dark_gray: rgba(255, 255, 255, 0.15);
-    --dark_gray_hover: rgba(255, 255, 255, 0.20);
     --warning_red: rgb(150, 0, 0);
 
     --deep-dark: rgb(0, 0, 10);
@@ -101,6 +99,7 @@
 
 /* Estilos generales para la página web en modo claro */
 body {
+    background-color: var(--light_overlay_ui);
     font-family: inter, system-ui;
     color: var(--dark);
 }
@@ -172,6 +171,10 @@ p {
 
 .nano-padding {
     padding: var(--nano-margin) 15px var(--nano-margin) 15px;
+}
+
+.subtitle-padding {
+    padding: var(--normal-margin);
 }
 
 .big-gap {
@@ -581,6 +584,10 @@ p {
         padding: var(--normal-margin-movile);
     }
 
+    .subtitle-padding {
+        padding: var(--big-margin) var(--normal-margin-movile) var(--normal-margin-movile) var(--normal-margin-movile);
+    }
+
     .section-dark {
         padding: var(--big-margin-movile) var(--normal-margin-movile);
     }
@@ -627,6 +634,7 @@ p {
 /* Estilos específicos para modo oscuro */
 @media (prefers-color-scheme: dark) {
     body {
+        background-color: var(--dark_overlay_ui);
         color: var(--light);
     }
 

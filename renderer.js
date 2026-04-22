@@ -36,6 +36,13 @@ document.addEventListener("DOMContentLoaded", async () => {
             posY -= 1;
         } else {
             randomYValue = Math.floor(Math.random() * windowHeight);
+            // Evitar que la posición Y toque el borde superior o inferior de la ventana
+            if (randomYValue < 100) {
+                randomYValue = 100;
+            }
+            if (randomYValue > windowHeight - 100) {
+                randomYValue = windowHeight - 100;
+            }
         }
 
         document.documentElement.style.setProperty('--posX', posX);
